@@ -16,7 +16,7 @@
                 Sign in
               </strong>
               <b-form-group id="input-group-1">
-                <label id="forminput">Email address:</label>
+                <label class="forminput">Email address:</label>
                 <b-form-input
                   id="input-1"
                   v-model="form.email"
@@ -28,7 +28,7 @@
             </div>
 
             <b-form-group id="input-group-2">
-              <label id="forminput">Your Name:</label>
+              <label class="forminput">Your Name:</label>
               <b-form-input
                 id="input-2"
                 v-model="form.name"
@@ -44,17 +44,17 @@
               </b-form-checkbox-group>
             </b-form-group>
             <div>
-            <b-button id="blue-gradient" type="submit" variant="primary">LOGIN</b-button><br><br>
+            <b-button class="blue-gradient btn-block" type="submit" variant="primary">LOGIN</b-button><br><br>
             <label>or Sign in with</label>
             </div>
             <div>
               <div style="border-bottom: solid 2px #E0e0e0;">
-                <b-button id="socialb" style="margin-right:5px;" @click="socialGoogleLogin"><i class="fab fa-google"></i></b-button>
-                <b-button id="socialb"><i class="fab fa-facebook" @click="socialFacecbookLogin"></i></b-button>
+                <b-button class="socialb" style="margin-right:5px;" @click="socialGoogleLogin"><i class="fab fa-google"></i></b-button>
+                <b-button class="socialb"><i class="fab fa-facebook" @click="socialFacecbookLogin"></i></b-button>
               </div>
               <div>
                 <br>
-                <label id="inputsignup">Not a member ?<a href=""> Sign Up</a></label>
+                <label class="inputsignup">Not a member ?<a href=""> Sign Up</a></label>
               </div>
             </div>
           </b-form>
@@ -148,8 +148,8 @@ export default {
 }
 </script>
 <style scoped>
-#forminput {display:block; width:x; height:y; text-align:left;}
-#inputsignup {display:block; width:x; height:y; text-align:right;}
+.forminput {display:block; width:x; height:y; text-align:left;}
+.inputsignup {display:block; width:x; height:y; text-align:right;}
 #customBtn {
       display: inline-block;
       background: white;
@@ -223,7 +223,7 @@ export default {
 .fa-google {
   color: #4285f4;
 }
-#socialb {
+.socialb {
 font-size:20px;
 background-color: Transparent;
 background-repeat:no-repeat;
@@ -232,7 +232,7 @@ cursor:pointer;
 overflow: hidden;
 outline:none;
 }
-#blue-gradient {
+.blue-gradient {
     background: linear-gradient(40deg,#45cafc,#303f9f)!important;
     margin: 6px;
     padding: 13.44px 34.24px;
@@ -240,5 +240,6 @@ outline:none;
 .btn-block {
     display: block;
     width: 100%;
+    border-radius: 10em;
 }
 </style>
