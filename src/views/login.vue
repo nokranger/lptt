@@ -40,7 +40,7 @@
 
             <b-form-group id="input-group-4">
               <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
-                <b-form-checkbox value="me">remeberme</b-form-checkbox>
+                <b-form-checkbox value="me">remember me</b-form-checkbox>
               </b-form-checkbox-group>
             </b-form-group>
             <div>
@@ -69,6 +69,14 @@
 <script>
 import firebase from 'firebase'
 export default {
+  metaInfo: {
+    title: 'Home',
+    titleTemplate: '%s - Yay!',
+    htmlAttrs: {
+      lang: 'en',
+      amp: true
+    }
+  },
   data () {
     return {
       form: {
