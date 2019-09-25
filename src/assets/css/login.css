@@ -1,0 +1,94 @@
+.forminput {display:block!important; width:x!important; height:y!important; text-align:left!important;}
+.inputsignup {display:block!important; width:x!important; height:y!important; text-align:right!important;}
+#customBtn {
+      display: inline-block!important;
+      background: white!important;
+      color: #444!important;
+      width: 190px!important;
+      border-radius: 5px!important;
+      border: thin solid #888!important;
+      box-shadow: 1px 1px 1px grey!important;
+      white-space: nowrap!important;
+    }
+    #customBtn:hover {
+      cursor: pointer!important;
+    }
+    span.label {
+      font-family: serif!important;
+      font-weight: normal!important;
+    }
+    span.icon {
+      background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
+      display: inline-block!important;
+      vertical-align: middle!important;
+      width: 42px!important;
+      height: 42px!important;
+    }
+    span.buttonText {
+      display: inline-block!important;
+      vertical-align: middle!important;
+      padding-left: 42px!important;
+      padding-right: 42px!important;
+      font-size: 14px!important;
+      font-weight: bold!important;
+      /* Use the Roboto font that is loaded in the <head> */
+      font-family: 'Roboto', sans-serif!important;
+    }
+.fa-facebook, .fa-facebook-square {
+    color: #3b5998!important;
+}
+.fa-twitter, .fa-twitter-square {
+    color: #00aced!important;
+}
+.fa-google-plus, .fa-google-plus-square {
+    color: #dd4b39!important;
+}
+.fa-youtube, .fa-youtube-play, .fa-youtube-square {
+    color: #bb0000!important;
+}
+.fa-tumblr, .fa-tumblr-square {
+    color: #32506d!important;
+}
+.fa-vine {
+    color: #00bf8f!important;
+}
+.fa-flickr {
+    color: #ff0084!important;
+}
+.fa-vimeo-square {
+    color: #aad450!important;
+}
+.fa-pinterest, .fa-pinterest-square {
+    color: #cb2027!important;
+}
+.fa-linkedin, .fa-linkedin-square {
+    color: #007bb6!important;
+}
+.fa-instagram {
+    color: #517fa4!important;
+}
+.fa-spotify {
+    color: #1ED760!important;
+}
+.fa-google {
+  color: #4285f4!important;
+}
+.socialb {
+font-size:20px!important;
+background-color: Transparent!important;
+background-repeat:no-repeat!important;
+border: none!important;
+cursor:pointer!important;
+overflow: hidden!important;
+outline:none!important;
+}
+.blue-gradient {
+    background: linear-gradient(40deg,#45cafc,#303f9f)!important;
+    margin: 6px!important;
+    padding: 13.44px 34.24px!important;
+}
+.btn-block {
+    display: block!important;
+    width: 100%!important;
+    border-radius: 10em!important;
+}
