@@ -9,51 +9,57 @@
         <b-col cols="12" sm="12" md="12" lg="6" xl="6">
           <br>
           <div>
-            <strong style="text-align:center;font-weight:bolder;color: #4f4f4f!important;">Sign in to LPTT</strong>
+            <strong style="text-align:center;font-weight:bolder;color: #4f4f4f!important;">Create your personal account</strong>
           </div>
           <br>
           <b-card>
           <b-form @submit="onSubmit" v-if="show">
             <div>
               <b-form-group id="input-group-1">
-                <label class="forminput">Username or email address</label>
+                <label class="forminput">Username <label style="color:red;">*</label></label>
                 <b-form-input
                   id="input-1"
+                  v-model="form.username"
+                  type="text"
+                  required
+                  placeholder=""
+                ></b-form-input>
+                <label style="font-size:10px;display:block;text-align:left;color:gray;">We'll never share your email with anyone else.</label>
+              </b-form-group>
+            </div>
+            <div>
+              <b-form-group id="input-group-3">
+                <label class="forminput">Email address <label style="color:red;">*</label></label>
+                <b-form-input
+                  id="input-3"
                   v-model="form.email"
                   type="email"
                   required
-                  placeholder="Enter email"
+                  placeholder=""
                 ></b-form-input>
+                <label style="font-size:10px;display:block;text-align:left;color:gray;">We’ll occasionally send updates about your account to this inbox. We’ll never share your email address with anyone.</label>
               </b-form-group>
             </div>
+
             <b-form-group id="input-group-2">
-              <label class="forminput">Password</label>
+              <label class="forminput">Password <label style="color:red;">*</label></label>
               <b-form-input
                 id="input-2"
                 v-model="form.password"
                 type="password"
                 required
-                placeholder="Enter password"
+                placeholder=""
               ></b-form-input>
-            </b-form-group>
-
-            <b-form-group id="input-group-4">
-              <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
-                <b-form-checkbox value="me">remember me</b-form-checkbox>
-              </b-form-checkbox-group>
+              <label style="font-size:10px;display:block;text-align:left;color:gray;">Make sure it's at least 15 characters OR at least 8 characters including a number and a lowercase letter. Learn more.</label>
             </b-form-group>
             <div>
-            <b-button class="blue-gradient btn-block" type="submit" variant="primary">LOGIN</b-button><br>
-            <label>or Sign in with</label>
+            <b-button class="blue-gradient btn-block" type="submit" variant="primary">Create an account</b-button><br>
+            <label>or Sign up with</label>
             </div>
             <div>
-              <div style="border-bottom: solid 2px #E0e0e0;">
+              <div> 
                 <b-button class="socialb" style="margin-right:5px;" @click="socialGoogleLogin"><i class="fab fa-google"></i></b-button>
                 <b-button class="socialb"><i class="fab fa-facebook" @click="socialFacecbookLogin"></i></b-button>
-              </div>
-              <div>
-                <br>
-                <label class="inputsignup">Not a member ?<a href=""> Sign Up</a></label>
               </div>
             </div>
           </b-form>
@@ -69,7 +75,7 @@
 import firebase from 'firebase'
 export default {
   metaInfo: {
-    title: 'Sign in to LPTT',
+    title: 'Sign up to LPTT',
     titleTemplate: '%s - LPTT',
     htmlAttrs: {
       lang: 'en',
@@ -79,9 +85,9 @@ export default {
   data () {
     return {
       form: {
+        username: '',
         email: '',
         password: '',
-        checked: []
       },
       show: true
     }
