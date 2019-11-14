@@ -25,6 +25,24 @@
               <div>
                 <b-form-group id="input-group-1">
                   <label class="forminput">
+                    Name
+                    <label style="color:red;">*</label>
+                  </label>
+                  <b-form-input id="input-4" v-model="form.name" type="text" required placeholder></b-form-input>
+                </b-form-group>
+              </div>
+              <div>
+                <div>
+                  <b-form-group id="input-group-1">
+                    <label class="forminput">
+                      Lastname
+                      <label style="color:red;">*</label>
+                    </label>
+                    <b-form-input id="input-4" v-model="form.lastname" type="text" required placeholder></b-form-input>
+                  </b-form-group>
+                </div>
+                <b-form-group id="input-group-1">
+                  <label class="forminput">
                     Username
                     <label style="color:red;">*</label>
                   </label>
@@ -62,25 +80,8 @@
                 </b-form-group>
               </div>
               <div>
-                <b-form-group id="input-group-1">
-                  <label class="forminput">
-                    Name
-                    <label style="color:red;">*</label>
-                  </label>
-                  <b-form-input id="input-4" v-model="form.name" type="text" required placeholder></b-form-input>
-                </b-form-group>
-              </div>
-              <div>
-                <div>
-                  <b-form-group id="input-group-1">
-                    <label class="forminput">
-                      Lastname
-                      <label style="color:red;">*</label>
-                    </label>
-                    <b-form-input id="input-4" v-model="form.name" type="text" required placeholder></b-form-input>
-                  </b-form-group>
-                </div>
-                <b-button class="blue-gradient btn-block" type="submit">Create an account</b-button>
+
+                <b-button class="blue-gradient btn-block" type="button" @click="onSignup">Create an account</b-button>
                 <br />
                 <label>or Sign up with</label>
               </div>
@@ -105,6 +106,7 @@
 
 <script>
 import firebase from 'firebase'
+import axios from 'axios'
 export default {
   metaInfo: {
     title: 'Sign up to LPTT',
@@ -117,6 +119,8 @@ export default {
   data() {
     return {
       form: {
+        name: '',
+        lastname: '',
         username: '',
         email: '',
         password: ''
@@ -125,6 +129,15 @@ export default {
     }
   },
   methods: {
+    onSignup () {
+      console.log('test')
+      axios.post('https://lptt-28ae9.firebaseio.com/users/signup.json', this.form).then(response => {
+        console.log(response)
+      }).catch(e => {
+        // this.error.push(e)
+      })
+      
+    },
     onSubmit(evt) {
       evt.preventDefault()
       alert(JSON.stringify(this.form))
@@ -181,6 +194,11 @@ export default {
           alert('Oops. ' + err.message)
         })
     }
+  },
+  created () {
+    // axios.get('https://lptt-28ae9.firebaseio.com/users/signup.json').then(response => {
+    //   console.log(response.data)
+    // })
   }
 }
 </script>

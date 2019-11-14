@@ -67,6 +67,7 @@
 
 <script>
 import firebase from 'firebase'
+import axios from 'axios'
 export default {
   metaInfo: {
     title: 'Sign in to LPTT',
@@ -87,6 +88,12 @@ export default {
     }
   },
   methods: {
+    onLogin () {
+      axios.get('https://lptt-28ae9.firebaseio.com/users/signup.json').then(response => {
+        console.log(response.data.email)
+        // this.form.email: re
+    })
+    },
     onSubmit (evt) {
       evt.preventDefault()
       alert(JSON.stringify(this.form))
@@ -143,6 +150,13 @@ export default {
           alert('Oops. ' + err.message)
         })
     }
+  },
+  created () {
+    axios.get('https://lptt-28ae9.firebaseio.com/users/signup.json').then(response => {
+    // console.log(response.data)
+    let data = response
+    console.log(data)
+    })
   }
 }
 </script>
