@@ -13,7 +13,7 @@
           </div>
           <br>
           <b-card>
-          <b-form @submit="onSubmit" v-if="show">
+          <b-form @submit="onSubmit"  v-if="show">
             <div>
               <b-form-group id="input-group-1">
                 <label class="forminput">Username or email address</label>
@@ -43,7 +43,7 @@
               </b-form-checkbox-group>
             </b-form-group>
             <div>
-            <b-button class="blue-gradient btn-block" type="submit">LOGIN</b-button><br>
+            <b-button class="blue-gradient btn-block" type="button" @click="onLogin">LOGIN</b-button><br>
             <label>or Sign in with</label>
             </div>
             <div>
@@ -82,17 +82,21 @@ export default {
       form: {
         email: '',
         password: '',
-        checked: []
       },
       show: true
     }
   },
   methods: {
     onLogin () {
-      axios.get('https://lptt-28ae9.firebaseio.com/users/signup.json').then(response => {
-        console.log(response.data.email)
-        // this.form.email: re
-    })
+      firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password).then(() => {
+        // console.log('Well done !')
+        // alert('Well done !')
+        this.$router.replace('users/' + this.form.email)
+      },
+        function (err) {
+          console.log('Opps' + err.message)
+          alert('Opps' + err.message)
+        })
     },
     onSubmit (evt) {
       evt.preventDefault()
@@ -152,11 +156,11 @@ export default {
     }
   },
   created () {
-    axios.get('https://lptt-28ae9.firebaseio.com/users/signup.json').then(response => {
-    // console.log(response.data)
-    let data = response
-    console.log(data)
-    })
+    // axios.get('https://lptt-28ae9.firebaseio.com/users/signup.json').then(response => {
+    // // console.log(response.data)
+    // let data = response
+    // console.log(data)
+    // })
   }
 }
 </script>

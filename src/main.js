@@ -17,6 +17,8 @@ Vue.use(BootstrapVue)
 
 Vue.config.productionTip = false
 
+let app = ''
+
 var firebaseConfig = {
   apiKey: 'AIzaSyBbrezyP1koQk0XFqL0KvbzJlauv9-FmJc',
   authDomain: 'lptt-28ae9.firebaseapp.com',
@@ -29,8 +31,12 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+      router,
+      store,
+      render: h => h(App)
+    }).$mount('#app')
+  }
+})

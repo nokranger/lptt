@@ -130,13 +130,15 @@ export default {
   },
   methods: {
     onSignup () {
-      console.log('test')
-      axios.post('https://lptt-28ae9.firebaseio.com/users/signup.json', this.form).then(response => {
-        console.log(response)
-      }).catch(e => {
-        // this.error.push(e)
-      })
-      
+      firebase.auth().createUserWithEmailAndPassword(this.form.email, this.form.password).then(() => {
+        console.log('create user')
+        // this.$router.replace('home')
+        // this.$router.replace('home')
+        this.$router.replace('users/' + this.form.email)
+      },
+        function (err) {
+          console.log('Opps' + err.message)
+        })
     },
     onSubmit(evt) {
       evt.preventDefault()
